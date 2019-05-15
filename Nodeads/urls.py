@@ -1,4 +1,4 @@
-"""Nodeads URL Configuration
+"""nodeads URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -16,16 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from groups.urls import groups_router
-from elements.urls import elements_router
-
-from rest_framework import routers
-
-router = routers.DefaultRouter()
+from groups_elements.urls import router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('', include(groups_router.urls)),
-    path('', include(elements_router.urls)),
+    path('', include(router.urls)),
 ]
